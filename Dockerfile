@@ -18,8 +18,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/
     printf '#!/bin/sh\nprintf "peplink:${PASSWORD}\\n" | chpasswd\nmkdir -p /var/run/xrdp\nrm -f /var/run/xrdp/*\nxrdp-sesman &\nsleep 1\nexec xrdp --nodaemon\n' > /usr/local/bin/startup.sh && \
     chmod +x /usr/local/bin/startup.sh
 
-COPY background.png /home/peplink/background.png
-RUN chown peplink:peplink /home/peplink/background.png
+COPY background.jpg /home/peplink/background.jpg
+RUN chown peplink:peplink /home/peplink/background.jpg
 
 EXPOSE 3389
 CMD ["/usr/local/bin/startup.sh"]
